@@ -11,17 +11,20 @@ from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import PyPDFLoader
-import os
+# import os
 import chromadb
 
 chromadb.api.client.SharedSystemClient.clear_system_cache()
 
-from dotenv import load_dotenv
-load_dotenv()
+# from dotenv import load_dotenv
+# load_dotenv()
 
-os.environ['HF_TOKEN']=os.getenv("HF_TOKEN")
+# os.environ['HF_TOKEN']=os.getenv("HF_TOKEN")
 embeddings=HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 
+# Set up your Hugging Face token and any other secrets using st.secrets
+api_key = st.secrets["GROQ_API_KEY"]
+hf_token = st.secrets["HF_TOKEN"]
 
 ## set up Streamlit 
 st.title("Conversational RAG With PDF uplaods and chat history")
