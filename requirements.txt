@@ -9,3 +9,4 @@ tf-keras
 pypdf
 Chroma
 chromadb
+protobuf==3.20.3
