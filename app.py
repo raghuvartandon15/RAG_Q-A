@@ -13,7 +13,9 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import PyPDFLoader
 import os
 import chromadb
-
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 chromadb.api.client.SharedSystemClient.clear_system_cache()
 
 # from dotenv import load_dotenv
